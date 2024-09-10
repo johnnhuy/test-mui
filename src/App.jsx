@@ -1,61 +1,57 @@
-// Login.jsx
 
+import {Button , TextField, Box, Typography} from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 
 const Login = () => {
   const { handleSubmit, control } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Form Data:', data);
+  const onSubmit = () => {
+    console.log('helo');
   
   };
 
   return (
-    <div>
-      <h2>Đăng Nhập</h2>
+      <div style={{margin : 'auto'}}>
+    <Box>
+      <Typography>Đăng Nhập</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
        
         <div>
-          <label htmlFor="username">Tên đăng nhập:</label>
+          <Typography htmlFor="username">Tên đăng nhập:</Typography>
           <Controller
             name="username"
             control={control}
             defaultValue=""
             render={({ field }) => (
-              <input
+              <TextField
                 {...field}
                 id="username"
                 type="text"
-               
-                required
               />
             )}
           />
         </div>
-
-       
         <div>
-          <label htmlFor="password">Mật khẩu:</label>
+          <Typography htmlFor="password">Mật khẩu:</Typography>
           <Controller
             name="password"
             control={control}
             defaultValue=""
             render={({ field }) => (
-              <input
+              <TextField
                 {...field}
                 id="password"
-                type="password"
-               
-                required
+                type="password"              
               />
             )}
           />
-        </div>
+        </div>   
 
-       
-        <button type="submit">Đăng Nhập</button>
+        <Button type="submit">Đăng Nhập</Button>
       </form>
-    </div>
+    </Box>
+
+      </div>
   );
 };
 
